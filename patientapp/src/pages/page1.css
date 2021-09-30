@@ -1,0 +1,25 @@
+.divide {
+  background-color: rgb(180, 177, 177);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divide1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.para:link {
+  text-decoration: none;
+  font-size: 18px;
+  font-family: "georgia";
+  font-weight: bold;
+}
+
+.para1 {
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+}

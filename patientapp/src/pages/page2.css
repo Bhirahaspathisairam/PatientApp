@@ -1,3 +1,20 @@
-.label {
+label {
   display: flex;
+  align-items: center;
+}
+input[type="checkbox"] {
+  flex: none;
+}
+
+h3 {
+  text-align: center;
+}
+
+.check input {
+  margin-left: 40%;
+}
+
+.container {
+  text-align: center;
+  margin-top: 1rem;
 }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import AuthContext from "../context/AuthContext";
 import "./userlogin.css";
+import logo from "../logo.svg";
 
 class userLogin extends React.Component {
   static contextType = AuthContext;
@@ -48,39 +49,48 @@ class userLogin extends React.Component {
   render() {
     console.log(this.state.Password);
     return (
-      <div className="login-form">
-        <form onSubmit={this.handleLogin}>
-          <h2 className="text-center">Log in</h2>
-          {this.state.error ? this.state.error : null}
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Username"
-              required="required"
-              value={this.state.userName}
-              onChange={(e) => this.onuserNameChange(e.target.value)}
-            />
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-6">
+            <img src={logo} alt="logo" />
           </div>
-          <div className="form-group">
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Password"
-              required="required"
-              value={this.state.Password}
-              onChange={(e) => this.onPasswordChange(e.target.value)}
-            />
+          <div className="col-6">
+            <div className="login-form">
+              <form onSubmit={this.handleLogin}>
+                <h2 className="text-center">Log in</h2>
+                {this.state.error ? this.state.error : null}
+                <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Username"
+                    required="required"
+                    value={this.state.userName}
+                    onChange={(e) => this.onuserNameChange(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="password"
+                    className="form-control"
+                    placeholder="Password"
+                    required="required"
+                    value={this.state.Password}
+                    onChange={(e) => this.onPasswordChange(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <button type="submit" className="btn btn-primary btn-block">
+                    Log in
+                  </button>
+                </div>
+              </form>
+              <p className="text-center">
+                <Link to="/signup">Sign up</Link>
+              </p>
+            </div>
           </div>
-          <div className="form-group">
-            <button type="submit" className="btn btn-primary btn-block">
-              Log in
-            </button>
-          </div>
-        </form>
-        <p className="text-center">
-          <Link to="/signup">Sign up</Link>
-        </p>
+        </div>
       </div>
     );
   }
