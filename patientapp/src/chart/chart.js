@@ -9,20 +9,23 @@ class Chart extends React.Component {
       both: "blue",
       diab: "orange",
     };
+    let len = Object.keys(this.props.chartdetails[0]).length;
+    const LABELS = Object.keys(this.props.chartdetails[0]).splice(0, len);
 
-    return [
-      {
-        label: this.props.chartdetails.POP,
-        data: this.props.chartdetails,
-        backgroundColor: color[this.props.chartdetails.POP],
+    return this.props.chartdetails.map((detail) => {
+      return {
+        label: detail.POP,
+        data: detail ? LABELS.map((val) => detail[val]) : [],
+        backgroundColor: color[detail.POP],
         borderColor: [],
         borderWidth: 1,
-      },
-    ];
+      };
+    });
   }
   render() {
-    let len = Object.keys(this.props.chartdetails).length;
-    const LABELS = Object.keys(this.props.chartdetails).splice(1, len - 2);
+    let len = Object.keys(this.props.chartdetails[0]).length;
+    const LABELS = Object.keys(this.props.chartdetails[0]).splice(0, len);
+    console.log(LABELS);
     return (
       <div>
         <div className="chart-details">
@@ -32,14 +35,21 @@ class Chart extends React.Component {
               datasets: this.getDataset(),
             }}
             height={400}
-            width={600}
+            width={1000}
             options={{
               maintainAspectRatio: true,
               scales: {
+                xAxes: [
+                  {
+                    ticks: {
+                      autoSkip: false,
+                    },
+                  },
+                ],
                 yAxes: [
                   {
                     ticks: {
-                      beginAtZero: true,
+                      autoSkip: false,
                     },
                   },
                 ],

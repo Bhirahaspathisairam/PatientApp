@@ -125,9 +125,10 @@ exports.getReport = (req, res, next) => {
   connection.query(sql, (err, rows) => {
     connection.query(reportsql, (err, rows) => {
       if (rows && rows.length > 0) {
+        console.log(rows);
         res.status(200).json({
           success: true,
-          reportData: rows[0],
+          reportData: rows,
         });
       }
       connection.query(dropView);

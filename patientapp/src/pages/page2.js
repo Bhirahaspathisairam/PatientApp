@@ -100,6 +100,11 @@ class Page1 extends React.Component {
   };
 
   render() {
+    var chart;
+    if (this.state.reportData.length > 0) {
+      chart = <Chart chartdetails={this.state.reportData} />;
+    }
+    console.log(this.state.reportData);
     return (
       <div className="container-fluid">
         <div className="row">
@@ -213,7 +218,7 @@ class Page1 extends React.Component {
             >
               Fetch Details
             </button>
-            <Chart chartdetails={this.state.reportData} />
+            {chart}
           </div>
         </div>
       </div>
